@@ -6,7 +6,7 @@ node {
 	}
 
 	stage('Build image'){
-		app = docker.build('asafaven/example-app')
+		app = docker.build('asafdocker/example-app')
 	}
 
 	stage('Push image') {

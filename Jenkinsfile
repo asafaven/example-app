@@ -9,10 +9,12 @@ node {
 		app = docker.build('asafaven/example-app')
 	}
 
-	stage('Push image'){
-		docker.withResigtry('https:://registry.hub.docker.com', 'docker-hub-credentials'){
-			app.push('latest')
-		}
-	}
+	stage('Push image') {
+        	/* Finally, we'll push the image into Docker Hub */
+
+        	docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+            		app.push("latest")
+        	}
+        }
 	
 }
